@@ -137,9 +137,7 @@ function update() {
     }
 
 
-    // ----------------------------
     // GROUND
-    // ----------------------------
 
     if (
         bird.y + bird.height >
@@ -150,9 +148,7 @@ function update() {
     }
 
 
-    // ----------------------------
     // REMOVE OLD PIPES
-    // ----------------------------
 
     pipes = pipes.filter(
         pipe => pipe.x + pipe.width > 0
@@ -160,9 +156,7 @@ function update() {
 }
 
 
-// ================================
 // COLLISION DETECTION
-// ================================
 
 function collision(bird, pipe) {
 
@@ -199,15 +193,11 @@ function collision(bird, pipe) {
 }
 
 
-// ================================
 // DRAW GAME
-// ================================
 
 function draw() {
 
-    // ----------------------------
     // BACKGROUND
-    // ----------------------------
 
     ctx.fillStyle = "skyblue";
 
@@ -219,9 +209,7 @@ function draw() {
     );
 
 
-    // ----------------------------
     // BIRD
-    // ----------------------------
 
     ctx.fillStyle = "yellow";
 
@@ -233,9 +221,7 @@ function draw() {
     );
 
 
-    // ----------------------------
     // PIPES
-    // ----------------------------
 
     ctx.fillStyle = "green";
 
@@ -260,9 +246,7 @@ function draw() {
     }
 
 
-    // ----------------------------
     // SCORE
-    // ----------------------------
 
     ctx.fillStyle = "white";
 
@@ -277,9 +261,7 @@ function draw() {
     );
 
 
-    // ----------------------------
     // GAME OVER SCREEN
-    // ----------------------------
 
     if (gameOverState) {
 
@@ -318,9 +300,7 @@ function draw() {
 }
 
 
-// ================================
 // GAME OVER
-// ================================
 
 function gameOver() {
 
@@ -328,9 +308,7 @@ function gameOver() {
 }
 
 
-// ================================
 // RESET GAME
-// ================================
 
 function resetGame() {
 
@@ -349,9 +327,7 @@ function resetGame() {
 }
 
 
-// ================================
 // INPUT
-// ================================
 
 document.addEventListener(
     "keydown",
@@ -380,9 +356,7 @@ document.addEventListener(
 );
 
 
-// ================================
 // MOUSE INPUT
-// ================================
 
 canvas.addEventListener(
     "mousedown",
@@ -402,9 +376,7 @@ canvas.addEventListener(
 );
 
 
-// ================================
 // TOUCH INPUT
-// ================================
 
 canvas.addEventListener(
     "touchstart",
@@ -427,9 +399,7 @@ canvas.addEventListener(
 );
 
 
-// ================================
 // GAME LOOP
-// ================================
 
 function gameLoop() {
 
@@ -441,9 +411,8 @@ function gameLoop() {
 }
 
 
-// ================================
 // START GAME
-// ================================
+
 
 resetGame();
 
