@@ -1,9 +1,7 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-// ========================================
 // GAME SETTINGS
-// ========================================
 
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
@@ -11,19 +9,15 @@ const HEIGHT = canvas.height;
 const WIN_SCORE = 5;
 
 
-// ========================================
-// PADDLE SETTINGS
-// ========================================
+ // PADDLE SETTINGS
 
 const PADDLE_WIDTH = 15;
 const PADDLE_HEIGHT = 100;
 const PADDLE_SPEED = 6;
 
 
-// ========================================
 // PLAYER 1
 // W / S
-// ========================================
 
 const player1 = {
     x: 30,
@@ -38,10 +32,8 @@ const player1 = {
 };
 
 
-// ========================================
 // PLAYER 2
 // ARROW UP / ARROW DOWN
-// ========================================
 
 const player2 = {
     x: WIDTH - 30 - PADDLE_WIDTH,
@@ -56,9 +48,7 @@ const player2 = {
 };
 
 
-// ========================================
 // BALL
-// ========================================
 
 const ball = {
     x: WIDTH / 2,
@@ -73,16 +63,12 @@ const ball = {
 };
 
 
-// ========================================
 // GAME STATE
-// ========================================
 
 let gameOver = false;
 
 
-// ========================================
 // KEYBOARD INPUT
-// ========================================
 
 const keys = {};
 
@@ -119,9 +105,7 @@ document.addEventListener("keyup", function(event) {
 });
 
 
-// ========================================
 // UPDATE
-// ========================================
 
 function update() {
 
@@ -131,9 +115,7 @@ function update() {
     }
 
 
-    // ====================================
     // PLAYER 1 MOVEMENT
-    // ====================================
 
     if (keys["w"]) {
         player1.y -= player1.speed;
@@ -144,9 +126,7 @@ function update() {
     }
 
 
-    // ====================================
     // PLAYER 2 MOVEMENT
-    // ====================================
 
     if (keys["arrowup"]) {
         player2.y -= player2.speed;
@@ -157,25 +137,19 @@ function update() {
     }
 
 
-    // ====================================
     // KEEP PADDLES INSIDE SCREEN
-    // ====================================
 
     keepPaddleInside(player1);
     keepPaddleInside(player2);
 
 
-    // ====================================
     // MOVE BALL
-    // ====================================
 
     ball.x += ball.velocityX;
     ball.y += ball.velocityY;
 
 
-    // ====================================
     // BALL VS TOP / BOTTOM
-    // ====================================
 
     if (ball.y <= 0) {
 
@@ -192,9 +166,7 @@ function update() {
     }
 
 
-    // ====================================
     // BALL VS PLAYER 1
-    // ====================================
 
     if (ballCollision(ball, player1)) {
 
@@ -206,9 +178,7 @@ function update() {
     }
 
 
-    // ====================================
     // BALL VS PLAYER 2
-    // ====================================
 
     if (ballCollision(ball, player2)) {
 
@@ -220,9 +190,7 @@ function update() {
     }
 
 
-    // ====================================
     // PLAYER 2 SCORES
-    // ====================================
 
     if (ball.x + ball.size < 0) {
 
@@ -236,9 +204,7 @@ function update() {
     }
 
 
-    // ====================================
     // PLAYER 1 SCORES
-    // ====================================
 
     if (ball.x > WIDTH) {
 
@@ -253,9 +219,7 @@ function update() {
 }
 
 
-// ========================================
 // KEEP PADDLE INSIDE CANVAS
-// ========================================
 
 function keepPaddleInside(player) {
 
@@ -272,9 +236,7 @@ function keepPaddleInside(player) {
 }
 
 
-// ========================================
 // BALL COLLISION
-// ========================================
 
 function ballCollision(ball, player) {
 
@@ -287,9 +249,7 @@ function ballCollision(ball, player) {
 }
 
 
-// ========================================
 // INCREASE BALL SPEED
-// ========================================
 
 function increaseBallSpeed() {
 
@@ -303,9 +263,7 @@ function increaseBallSpeed() {
 }
 
 
-// ========================================
 // RESET BALL
-// ========================================
 
 function resetBall() {
 
@@ -338,9 +296,7 @@ function resetBall() {
 }
 
 
-// ========================================
 // RESET ENTIRE GAME
-// ========================================
 
 function resetGame() {
 
@@ -366,9 +322,7 @@ function resetGame() {
 }
 
 
-// ========================================
 // CHECK WINNER
-// ========================================
 
 function checkWinner() {
 
@@ -385,15 +339,11 @@ function checkWinner() {
 }
 
 
-// ========================================
 // DRAW
-// ========================================
 
 function draw() {
 
-    // ====================================
     // BACKGROUND
-    // ====================================
 
     ctx.fillStyle = "black";
 
@@ -405,9 +355,7 @@ function draw() {
     );
 
 
-    // ====================================
     // CENTER LINE
-    // ====================================
 
     ctx.strokeStyle = "white";
 
@@ -432,9 +380,7 @@ function draw() {
     ctx.setLineDash([]);
 
 
-    // ====================================
     // PLAYER 1
-    // ====================================
 
     ctx.fillStyle = "white";
 
@@ -446,9 +392,7 @@ function draw() {
     );
 
 
-    // ====================================
     // PLAYER 2
-    // ====================================
 
     ctx.fillRect(
         player2.x,
@@ -458,9 +402,7 @@ function draw() {
     );
 
 
-    // ====================================
     // BALL
-    // ====================================
 
     ctx.fillRect(
         ball.x,
@@ -470,9 +412,7 @@ function draw() {
     );
 
 
-    // ====================================
     // SCORE
-    // ====================================
 
     ctx.font = "50px Arial";
 
@@ -491,9 +431,7 @@ function draw() {
     );
 
 
-    // ====================================
     // GAME OVER SCREEN
-    // ====================================
 
     if (gameOver) {
 
@@ -546,9 +484,7 @@ function draw() {
 }
 
 
-// ========================================
 // GAME LOOP
-// ========================================
 
 function gameLoop() {
 
@@ -560,9 +496,8 @@ function gameLoop() {
 }
 
 
-// ========================================
 // START GAME
-// ========================================
+
 
 resetGame();
 
