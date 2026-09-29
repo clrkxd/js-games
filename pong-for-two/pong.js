@@ -41,7 +41,6 @@ const player2 = {
 
     width: PADDLE_WIDTH,
     height: PADDLE_HEIGHT,
-
     speed: PADDLE_SPEED,
 
     score: 0
@@ -55,9 +54,7 @@ const ball = {
     y: HEIGHT / 2,
 
     size: 15,
-
     speed: 5,
-
     velocityX: 5,
     velocityY: 3
 };
@@ -76,7 +73,6 @@ document.addEventListener("keydown", function(event) {
 
     keys[event.key.toLowerCase()] = true;
 
-
     // Prevent page scrolling
     if (
         event.code === "Space" ||
@@ -88,20 +84,16 @@ document.addEventListener("keydown", function(event) {
 
 
     // Restart game
-    if (
-        event.code === "Space" &&
-        gameOver
+    if (event.code === "Space" && gameOver
     ) {
         resetGame();
     }
-
 });
 
 
 document.addEventListener("keyup", function(event) {
 
     keys[event.key.toLowerCase()] = false;
-
 });
 
 
